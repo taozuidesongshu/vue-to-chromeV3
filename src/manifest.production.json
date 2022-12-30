@@ -1,12 +1,25 @@
 {
     "manifest_version": 2,
-    "name": "vue-extension",
+    "name": "vue开发",
     "description": "a chrome extension with vue-cli3",
     "version": "0.0.1",
     "options_page": "options.html",
     "browser_action": {
         "default_popup": "popup.html"
     },
+    "background": {
+        "scripts": ["js/background.js"]
+    },
+    "icons": {
+        "16": "assets/extension-icons/logo-16.png",
+        "128": "assets/extension-icons/logo-128.png",
+        "48": "assets/extension-icons/logo-48.png"
+    },
+    "permissions": [
+        "webRequest",
+        "webRequestBlocking",
+        "storage"
+    ],
     "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
     "content_scripts": [{
         "matches": [

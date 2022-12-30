@@ -1,5 +1,5 @@
 <template>
-  <div class="main_app">
+  <div class="box">
     <el-card class="box-card">
       <div
           slot="header"
@@ -62,19 +62,13 @@ export default {
 }
 </script>
 
-<style>
-.main_app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-.box-li{
-  display: flex;
-  height: 10vh;
-  margin-bottom: 1vh;
-  width: 100vw;
+<style rel="stylesheet/css" lang="css" scoped>
+.box{
+  position: absolute;
+  top: 100px;
+  left: 10px;
+  width: 300px;
+  height: 500px;
+  background: red;
 }
 </style>

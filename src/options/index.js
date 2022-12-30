@@ -2,6 +2,15 @@ import Vue from "vue";
 import AppComponent from "./App/App.vue";
 
 Vue.component("app-component", AppComponent);
+import {
+  Card,
+  Button,
+  Image
+} from 'element-ui';
+
+Vue.use(Card);
+Vue.use(Button);
+Vue.use(Image);
 
 new Vue({
   el: "#app",

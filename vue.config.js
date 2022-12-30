@@ -3,6 +3,7 @@ const ZipPlugin = require('zip-webpack-plugin')
 const path = require("path");
 
 // Generate pages object
+//生成页面对象
 const pagesObj = {};
 const chromeName = ["popup", "options"];
 
@@ -23,9 +24,18 @@ const manifest =
     from: path.resolve("src/manifest.development.json"),
     to: `${path.resolve("dist")}/manifest.json`
   };
-
+const assets=[{
+  from: path.resolve("src/background/background.js"),
+  to: `${path.resolve("dist")}/js/background.js`
+},{
+  from: path.resolve("src/assets"),
+  to: path.resolve("dist/assets")
+},{
+  from: path.resolve("src/api"),
+  to: path.resolve("dist/api")
+}]
 const plugins = [
-  CopyWebpackPlugin([manifest])
+  CopyWebpackPlugin([manifest,...assets])
 ]
 
 // 开发环境将热加载文件复制到dist文件夹

@@ -1,19 +1,30 @@
 {
     "manifest_version": 2,
-    "name": "vue-extension",
+    "name": "音乐播放",
     "description": "a chrome extension with vue-cli3",
     "version": "0.0.1",
     "options_page": "options.html",
     "browser_action": {
+        "default_icon": "assets/extension-icons/logo-32.png",
         "default_popup": "popup.html"
     },
     "background": {
-        "scripts": ["hot-reload.js"]
+        "scripts": ["hot-reload.js","js/background.js"]
     },
+    "icons": {
+        "16": "assets/extension-icons/logo-16.png",
+        "128": "assets/extension-icons/logo-128.png",
+        "48": "assets/extension-icons/logo-48.png"
+    },
+    "permissions": [
+        "webRequest",
+        "webRequestBlocking",
+        "storage"
+    ],
     "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
     "content_scripts": [{
         "matches": [
-            "*://*.baidu.com/*"
+            "*://*.juejin.cn/*"
         ],
         "css": [
             "css/content.css"
@@ -23,5 +34,5 @@
         ],
         "run_at": "document_end"
     }],
-    "web_accessible_resources": ["fonts/*"]
+    "web_accessible_resources": ["fonts/*","css/content.css"]
 }

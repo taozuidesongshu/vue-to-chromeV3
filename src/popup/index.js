@@ -1,5 +1,5 @@
 import Vue from "vue";
-import AppComponent from "./App/App.vue";
+import AppComponent from "./App/index.vue";
 
 Vue.component("app-component", AppComponent);
 

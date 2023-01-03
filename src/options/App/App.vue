@@ -54,7 +54,7 @@ export default {
   },
   methods: {
     go() {
-      apiGetList({ 'keywords': '海阔天空' }).then(res => {
+      apiGetList({ 'keywords': '猫咪宝贝' }).then(res => {
         this.listData = res.result.songs
       })
     }

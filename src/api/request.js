@@ -10,13 +10,14 @@ const service = axios.create({
 // request interceptor
 service.interceptors.request.use(
 	async config => {
-		if (process.env.NODE_ENV === 'production') {
-			// config.baseURL = localStorage.getItem('BASE_API')
-			config.baseURL = 'https://mu-api.yuk0.com'
-		} else {
-			// config.baseURL = process.env.VUE_APP_BASE_API
-			config.baseURL = 'https://mu-api.yuk0.com'
-		}
+		// if (process.env.NODE_ENV === 'production') {
+		// 	// config.baseURL = localStorage.getItem('BASE_API')
+		// 	config.baseURL = 'https://mu-api.yuk0.com'
+		// } else {
+		// 	// config.baseURL = process.env.VUE_APP_BASE_API
+		// 	config.baseURL = 'https://node-lwldp.run.goorm.io/'
+		// }
+		config.baseURL?config.baseURL:(config.baseURL="https://node-lwldp.run.goorm.io/")
 		// const urlInfo = JSON.parse(Cookies.get('urlInfo'))
 		// config.headers['Authorization'] = `Bearer ${urlInfo.token}`
 		// config.headers['systemCode'] = urlInfo.systemCode
@@ -32,8 +33,7 @@ service.interceptors.request.use(
 // response interceptor
 service.interceptors.response.use(
 	response => {
-		const res = response.data
-		if (res.code && res.code === 200) {
+		if (response.status && response.status === 200) {
 			if (response.config.method === 'post') {
 				// 屏蔽message
 				if (response.config.show_message) {
@@ -48,7 +48,7 @@ service.interceptors.response.use(
 		} else {
 			if (response.config.show_message) {
 				Message({
-					message: res.message,
+					message: response.data.message,
 					type: 'error',
 					duration: 5000
 				})

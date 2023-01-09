@@ -11,3 +11,15 @@ export function apiGetList(params) {
 		params,
 	})
 }
+/**
+ * @description: 每日60s
+ * keywords: str
+ */
+export function api60s(params) {
+	return request({
+		baseURL:'https://api.vvhan.com',
+		url: '/api/60s',
+		method: 'get',
+		params,
+	})
+}

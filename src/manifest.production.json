@@ -1,14 +1,16 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "vue开发",
     "description": "a chrome extension with vue-cli3",
     "version": "0.0.1",
     "options_page": "options.html",
-    "browser_action": {
+    "action": {
+        "default_icon": "assets/extension-icons/logo-32.png",
         "default_popup": "popup.html"
     },
     "background": {
-        "scripts": ["js/background.js"]
+        "service_worker":"js/background.js",
+        "type": "module"
     },
     "icons": {
         "16": "assets/extension-icons/logo-16.png",
@@ -17,13 +19,15 @@
     },
     "permissions": [
         "webRequest",
-        "webRequestBlocking",
         "storage"
     ],
-    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "host_permissions":[
+        "http://*/*",
+        "https://*/*"
+    ],
     "content_scripts": [{
         "matches": [
-            "*://*.baidu.com/*"
+            "*://*.juejin.cn/*"
         ],
         "css": [
             "css/content.css"
@@ -33,5 +37,14 @@
         ],
         "run_at": "document_end"
     }],
-    "web_accessible_resources": ["fonts/*"]
+    "content_security_policy":{
+        "extension_pages":"script-src 'self'; object-src 'self'"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": ["fonts/*","css/content.css"],
+            "matches": [ "*://*.juejin.cn/*"],
+            "use_dynamic_url": true
+        }
+    ]
 }

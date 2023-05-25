@@ -1,13 +1,10 @@
 import axios from 'axios'
 import { Message } from 'element-ui'
-// const BASE_API = process.env.NODE_ENV === 'production' ? localStorage.getItem('BASE_API') : process.env.VUE_APP_BASE_API
-// create an axios instance
 const service = axios.create({
 	baseURL: '',
 	timeout: 600000 // request timeout
 })
 
-// request interceptor
 service.interceptors.request.use(
 	async config => {
 		// if (process.env.NODE_ENV === 'production') {
@@ -18,9 +15,6 @@ service.interceptors.request.use(
 		// 	config.baseURL = 'https://node-lwldp.run.goorm.io/'
 		// }
 		config.baseURL?config.baseURL:(config.baseURL="https://node-lwldp.run.goorm.io/")
-		// const urlInfo = JSON.parse(Cookies.get('urlInfo'))
-		// config.headers['Authorization'] = `Bearer ${urlInfo.token}`
-		// config.headers['systemCode'] = urlInfo.systemCode
 		config.headers['Content-Type'] = config.headers['Content-Type'] ? config.headers['Content-Type'] : 'application/json'
 		config['show_message'] = !(config.data && config.data.not_show_message)
 		return config

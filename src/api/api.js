@@ -1,4 +1,3 @@
-//绩效评估API
 import request from './request'
 /**
  * @description: 获取列表

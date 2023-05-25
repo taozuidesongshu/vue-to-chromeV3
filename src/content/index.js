@@ -1,7 +1,3 @@
-// import {
-//     Message,
-//     MessageBox
-// } from 'element-ui';
 let div
 div = document.createElement('div')
 div.id='vue_chrome'

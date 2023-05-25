@@ -13,20 +13,6 @@
 <!--        </el-button>-->
         <a :href="imgUrl" target="_blank">主要链接</a>
       </div>
-<!--      <ul>-->
-<!--        <li v-for="(o,index) in listData" :key="index" class="box-li">-->
-<!--          <div style="width: 10vw">-->
-<!--            &lt;!&ndash;            <el-image&ndash;&gt;-->
-<!--            &lt;!&ndash;                style="width: 100px; height: 100px"&ndash;&gt;-->
-<!--            &lt;!&ndash;                :src="o.al.picUrl"&ndash;&gt;-->
-<!--            &lt;!&ndash;                :fit="'fill'"&ndash;&gt;-->
-<!--            &lt;!&ndash;            ></el-image>&ndash;&gt;-->
-<!--          </div>-->
-<!--          <div style="flex: 1;text-align: left;">-->
-<!--            {{ index + 1 }}： {{ o }}-->
-<!--          </div>-->
-<!--        </li>-->
-<!--      </ul>-->
                   <el-image
                       style="width: 500px;"
                       :src="imgUrl"
